@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] public GameObject winUI;
     [SerializeField] public GameObject loseUI;
     CameraController cameraController;
-    public AudioClip zafer;
+    [SerializeField] GameObject winSound;
     void Start()
     {
         buttons = GameObject.Find("ButtonManager").GetComponent<Buttons>();
@@ -46,8 +46,7 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0;
             winUI.SetActive(true);
             win = true;
-            GameObject.Find("AudioManager").GetComponent<AudioSource>().PlayOneShot(zafer, 1f);
-
+            winSound.SetActive(true);
         }
         if (win == true && lose == true)
         {
